@@ -12,7 +12,7 @@ import lombok.Setter;
 @Entity
 public class EmployeeRequest {
 	@Id
-	private int id;
+	private Integer id;
 	private String firstName;
 	private String lastName;
 	private Date startDate;

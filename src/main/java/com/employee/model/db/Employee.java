@@ -24,7 +24,7 @@ import lombok.Setter;
 public class Employee {
 	@Id
 	@Column(name="id")
-	private int id;
+	private Integer id;
 	@Column(name="FirstName")
 	private String firstName;
 	@Column(name="LastName")

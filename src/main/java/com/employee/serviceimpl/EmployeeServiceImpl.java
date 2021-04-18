@@ -1,11 +1,12 @@
 package com.employee.serviceimpl;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.employee .model.request.EmployeeRequest;
 import com.employee .model.db.Employee;
 import com.employee.Service.EmployeeService;
@@ -40,12 +41,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Optional<Employee> getAll(int id) {
-	
-	
+	public List<Employee> getAll(int id) {
+	List<Employee> result=new ArrayList<>();
 		
+		employeeDao.findById(id).ifPresent(result::add);
 		
-		return employeeDao.findById(id);
+		return result;
 	}
 
 	@Override

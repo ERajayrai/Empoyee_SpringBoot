@@ -44,16 +44,18 @@ public class EmployeeController {
 	
 	
 
-	@RequestMapping(value="/employee/search",method= RequestMethod.GET)
-	public JsonResponse getEmployeeAll(@RequestParam("q")int id, @RequestHeader("security-key") String securityKey){
+	@RequestMapping(value="/employee/search/{id}",method= RequestMethod.GET)
+	public JsonResponse getEmployeeAll(@PathVariable("id")int id , @RequestHeader("security-key") String securityKey){
+		System.out.println(security.equals(securityKey));
 		
 		if(security.equals(securityKey))
+			
 			return  new JsonResponse(0,"",employeeService.getAll(id) );
 		else
 			return new  JsonResponse(-1,"unauthorized user",null);
 		
 	}
-	@RequestMapping(value="/employee/{id}",method= RequestMethod.DELETE)
+	@RequestMapping(value="/employee/delete/{id}",method= RequestMethod.DELETE)
 	public JsonResponse getEmployeeDelete(@PathVariable("id")int id,@RequestHeader("security-key") String securityKey){
 		
 		if(security.equals(securityKey))
