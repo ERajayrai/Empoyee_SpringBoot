@@ -23,7 +23,7 @@ import lombok.Setter;
 public class Dependants {
 	@Id
 	@Column(name="EmployeeId")
-	private int employeeId;
+	private int id;
 	@Column(name="FirstName")
 	private String firstName;
 	@Column(name="LastName")
@@ -42,7 +42,7 @@ public class Dependants {
 		this.gender=req.getGender();
 		this.dob=req.getDob();
 		this.relationship=req.getRelationship();
-		this.employeeId=req.getEmployeeId();
+		this.id=req.getEmployeeId();
 		
 		
 	}

@@ -2,6 +2,7 @@ package com.employee.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -19,6 +20,7 @@ import com.employee.Service.SearchSearvice;
 
 
 @RestController
+@CrossOrigin
 public class EmployeeController {
 	
 	@Autowired

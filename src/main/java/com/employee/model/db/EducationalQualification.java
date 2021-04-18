@@ -23,7 +23,7 @@ import lombok.Setter;
 @Document(indexName= "eduqfy")
 public class EducationalQualification {
 	@Id
-	private int employeeId;
+	private int id;
 	@Column(name="Type")
 	private String type ;
 	@Column(name="Institution")
@@ -48,7 +48,7 @@ public class EducationalQualification {
 		this.endDate = edqReq.getEndDate();
 		this.percentage = edqReq.getPercentage();
 		this.adress = edqReq.getAdress();
-		this.employeeId=edqReq.getEmployeeId();
+		this.id=edqReq.getEmployeeId();
 	}
 	
 

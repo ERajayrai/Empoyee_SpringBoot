@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.employee .model.request.DependantsRequest;
 import com.employee .model.db.Dependants;
@@ -17,7 +18,7 @@ public class DependantsServiceImpl implements DependantsService {
 	@Autowired
 	private DependantsRepository dependantsRepository;
 	
-
+	@Transactional
 	@Override
 	public Integer addDependants(DependantsRequest dReq) {
 		
