@@ -3,6 +3,7 @@ package com.employee.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,16 +37,16 @@ public class EducationalController {
 		else
 			return new  JsonResponse(-1,"unauthorized user",null);
 	}
-	@RequestMapping(value="/search/qulification",method= RequestMethod.GET)
-	public  @ResponseBody JsonResponse  getQulification(@RequestParam("q") int employeeId, @RequestHeader("security-key") String securityKey) {
+	@RequestMapping(value="/search/qulification/{employeeId}",method= RequestMethod.GET)
+	public  @ResponseBody JsonResponse  getQulification(@PathVariable("employeeId") int employeeId, @RequestHeader("security-key") String securityKey) {
 		if(security.equals(securityKey))
 			return new  JsonResponse(0,"",service.getAddQulifaction(employeeId));
 		else
 			return new  JsonResponse(-1,"unauthorized user",null);
 	}
 	
-	@RequestMapping(value="/qulification/delete",method= RequestMethod.DELETE)
-	public  @ResponseBody JsonResponse  getDeleteQulification(@RequestParam("q") int employeeId,@RequestHeader("security-key") String securityKey) {
+	@RequestMapping(value="/qulification/delete/{employeeId}",method= RequestMethod.DELETE)
+	public  @ResponseBody JsonResponse  getDeleteQulification(@PathVariable("employeeId") int employeeId,@RequestHeader("security-key") String securityKey) {
 		if(security.equals(securityKey))	
 			return  new  JsonResponse(0,"1 Record Deleted Sucessfully",service.getDeleteQlfy(employeeId));
 		else

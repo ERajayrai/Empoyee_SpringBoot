@@ -33,7 +33,7 @@ public class Dependants {
 	@Column(name="Dob")
 	private Date dob;
 	@Column(name="Relationship")
-	private String relationship;
+	private String relationShip;
 	
 	public Dependants(DependantsRequest req ) {
 		
@@ -41,7 +41,7 @@ public class Dependants {
 		this.lastName=req.getLastName();
 		this.gender=req.getGender();
 		this.dob=req.getDob();
-		this.relationship=req.getRelationship();
+		this.relationShip=req.getRelationShip();
 		this.id=req.getEmployeeId();
 		
 		

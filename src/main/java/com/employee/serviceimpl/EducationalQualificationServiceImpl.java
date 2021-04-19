@@ -1,6 +1,8 @@
 package com.employee.serviceimpl;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import javax.transaction.Transactional;
 
@@ -22,9 +24,8 @@ public class EducationalQualificationServiceImpl implements EducationalQualifica
 	@Autowired
 	private EducationQualificationRepository eduqlfyRepository;
 	
-
-	@Override
 	@Transactional
+	@Override
 	public Integer addDetails(EducationalQualificationRequest edqfy) {
 		try {
 			EducationalQualification eql=new EducationalQualification (edqfy);
@@ -43,9 +44,11 @@ public class EducationalQualificationServiceImpl implements EducationalQualifica
 
 
 	@Override
-	public Optional<EducationalQualification> getAddQulifaction(int employeeId) {
-		eduqlfyRepository.findById(employeeId);
-		return edqDao.findById(employeeId);
+	public List<EducationalQualification> getAddQulifaction(int employeeId) {
+		List<EducationalQualification> result=new ArrayList<>();
+		
+		edqDao.findById(employeeId).ifPresent(result::add);
+		return result;
 	}
 
 

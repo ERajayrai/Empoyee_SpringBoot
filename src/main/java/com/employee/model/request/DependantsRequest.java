@@ -17,6 +17,6 @@ public class DependantsRequest {
 	private String lastName;
 	private String gender;
 	private Date dob;
-	private String relationship; 
+	private String relationShip; 
 
 }

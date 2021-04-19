@@ -1,6 +1,8 @@
 package com.employee.serviceimpl;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.employee .model.request.DependantsRequest;
 import com.employee .model.db.Dependants;
+
 import com.employee.Service.DependantsService;
 import com.employee.dao.service.DependantsDao;
 import com.employee.data.service.DependantsRepository;
@@ -38,9 +41,12 @@ public class DependantsServiceImpl implements DependantsService {
 
 
 	@Override
-	public Optional<Dependants> getDependants(int employeeId) {
-		dependantsRepository.findById(employeeId);
-		return dDao.findById(employeeId );
+	public List<Dependants> getDependants(int employeeId) {
+		List<Dependants> result=new ArrayList<>();
+		
+		dependantsRepository.findById(employeeId).ifPresent(result::add);
+	
+		return result;
 	}
 
 

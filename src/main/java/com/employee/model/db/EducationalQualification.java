@@ -23,26 +23,27 @@ import lombok.Setter;
 @Document(indexName= "eduqfy")
 public class EducationalQualification {
 	@Id
+	@Column(name="EmployeeId")
 	private int id;
 	@Column(name="Type")
 	private String type ;
 	@Column(name="Institution")
-	private String Institution;
+	private String institution;
 	@Column(name="Ntype")
 	private String nType;
 	@Column(name="StartDate")
 	private Date startDate;
 	@Column(name=" EndDate")
 	private Date endDate;
-	@Column(name="Percentage")
-	private String percentage;
 	@Column(name=" Address")
 	private String adress;
+	@Column(name="Percentage")
+	private String percentage;
 	
 	
 	public EducationalQualification(EducationalQualificationRequest  edqReq) {
 		this.type =edqReq.getType();
-		this.Institution =edqReq.getInstitution();
+		this.institution =edqReq.getInstitution();
 		this.nType = edqReq.getType();
 		this.startDate = edqReq.getStartDate();
 		this.endDate = edqReq.getEndDate();

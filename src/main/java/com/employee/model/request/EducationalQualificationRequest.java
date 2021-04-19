@@ -11,10 +11,12 @@ import lombok.Setter;
 @Setter
 @Entity
 public class EducationalQualificationRequest {
-	private String type ;
+	
 	@Id
+	
 	private int employeeId;
-	private String Institution;
+	private String type ;
+	private String institution;
 	private String nType;
 	private Date startDate;
 	private Date endDate;
